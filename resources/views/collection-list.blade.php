@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delivery</title>
+    <title>Collection list</title>
     <link rel="stylesheet" href="{{ asset('css/farmer-list.css') }}">
 </head>
 <body>
@@ -15,52 +15,51 @@
           </div>  
         </div>
         <div class="nav-bar">
-
           <a class="nav-btn" href="{{ url('/home') }}">Home</a>
-           <?php if($login_user->role == '1') {?>
             <a class="nav-btn" href="{{ url('/farmer-list') }}">Farmers</a>
             <a class="nav-btn" href="{{ url('/employees') }}">Employees</a>
             <a class="nav-btn" href="{{ url('/collection-list') }}">Collection</a>
-          <?php } ?>
             <a class="nav-btn" href="{{ url('/delivery') }}">Delivery</a>
-            <?php if($login_user->role == '1') { ?>
             <a class="nav-btn" href="{{ url('payments/') }}">Payment</a>
             <a class="nav-btn" href="{{ url('/report') }}">Report</a>
-          <?php } ?>
             {{-- <a class="nav-btn">Setting</a> --}}
         </div>
         <div class="content">
             <table class="table-content">
-                <h1 class="table-name">Delivery List</h1>
+                <h1 class="table-name">Collection List</h1>
                 <tr>
-                  <th>Company Name</th>
-                  <th>Company Id</th>
-                  <th>Address</th>
+                  <th>Id</th>
+                  <th>Farmer's Id</th>
+                  <th>Farmer's Name</th>
                   <th>Milk Amount</th>
                   <th>Price</th>
-                  <th>Status</th>
+                  <th>Date</th>
+                  {{-- <th>Status</th> --}}
                   <th>Action</th>
                 </tr>
-                @foreach ($users as $user)
+                @foreach ($collections as $item)
+                {{-- @dd($collections) --}}
                 <tr>
-                  <td>{{ $user->company_name }}</td>
-                  <td>{{ $user->id }}</td>
-                  <td>{{ $user->address }}</td>
-                  <td>{{ $user->milk_amount }}</td>
-                  <td>{{ $user->price }}</td>
-                  <td>{{ $user->status }}</td>
+                  <td>{{ $item->id }}</td>
+                  <td>{{ $item->farmer->serial_no }}</td> 
+                  <td>{{ $item->farmer->name }}</td>
+                  <td>{{ $item->milk_amount }}</td>
+                  <td>{{ $item->price }}</td>
+                  <td>{{ $item->date }}</td>
+                  {{-- <td>{{$item->status}}</td> --}}
                   <td>
-                      <a class="table-btn" href="{{ route('update.delivery',$user->id) }}">Update</a>
-                      <a class="table-btn1" href="{{ route('delete.delivery',$user->id) }}">Delete</a>
+                     <a class="table-btn" href="{{ route('collection.edit',$item->id) }}">Update</a> 
+                      <a class="table-btn1" href="{{ route('delete.collection',$item->id) }}">Delete</a> 
                   </td>
                 </tr>
                 @endforeach
               </table>    
         </div>
         <div class="add">
-        <a class="addbtn" href="{{ url('/add-delivery') }}">Add Delivery</a>
+        <a class="addbtn" href="{{route('collection.create')}}">Add</a>
         </div>
         <div class="footer"></div>
     </div>
 </body>
 </html>
+

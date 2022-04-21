@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Add Farmer</title>
+    <title>Collection</title>
     <link rel="stylesheet" href="{{ asset('css/add-farmer.css') }}">
     <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css"> 
 </head>
@@ -19,47 +19,55 @@
             <a class="nav-btn" href="{{ url('/collection-list') }}">Collection</a>
             <a class="nav-btn" href="{{ url('/delivery') }}">Delivery</a>
             <a class="nav-btn" href="{{ url('payments/') }}">Payment</a>
-            <a class="nav-btn" href="{{ url('/report') }}">Report</a>
+            <a class="nav-btn" href="{{ url('/report') }}">Report</a>    
+                    
             {{-- <a class="nav-btn" href="#">Settings</a> --}}
         </div>
         <div class="reg-form">
-            <div class="title">Update Farmer</div>
+            <div class="title">Collection</div>
         <div class="content">
-          <form action="/edit" method="POST">
+          <form action="{{route('collection.update',$collection->id)}}" method="POST">
+            @method('put')
             @csrf
-            <input type="hidden" name="id" value="{{ $data['id'] }}">
             <div class="user-details">
+        
+                <div class="input-box">
+                    {{-- <span class="details">Name of Farmer:</span> --}}
+                    <select class="select-box" name="farmer_id" aria-label="Default select example">
+                        <option>Select Farmer</option>
+
+                        @foreach ($farmer as $item)
+                  
+                        <option
+                        @if($item->id==$collection->farmer_id)
+                              selected
+                              @endif
+                          value="{{$item->id}}">{{$item->name}}</option>    
+                        @endforeach
+                      </select>
+                </div>
               <div class="input-box">
-                <span class="details">Serial-No:</span>
-                <input type="text" name="serial_no" placeholder="Enter the number" value="{{ $data['serial_no'] }}" required>
-              </div>
-              {{-- <div class="input-box">
-                <span class="details">Id-No:</span>
-                <input type="text" name="id" placeholder="Enter ID" required>
-              </div> --}}
-              <div class="input-box">
-                <span class="details">Name of Farmer:</span>
-                <input type="text" name="name" placeholder="Enter the name"
-                 value="{{ $data['name'] }}" required>
-              </div>
-              <div class="input-box">
-                <span class="details">Locality of Farmer:</span>
-                <input type="text" name="locality" placeholder="Area" 
-                value="{{ $data['locality'] }}" required>
-              </div>
-              <div class="input-box">
-                <span class="details">Farmer's A/C NO:</span>
-                <input type="text" name="farmers_account" placeholder="Bank account number" value="{{ $data['farmers_account'] }}" required>
+                <span class="details">Milk Amount</span>
+                <input type="text" name="amount" value="{{$collection->milk_amount}}" placeholder="Enter Milk Amount" required>
               </div>
               <div class="input-box">
-                <span class="details">Farmer's Phone NO:</span>
-                <input type="text" name="farmers_phone" placeholder="Phone number" value="{{ $data['farmers_phone'] }}" required>
+                <span class="details">Price</span>
+                <input type="text" name="price" value="{{$collection->price}}" placeholder="Enter Price" required>
+              </div>
+              <div class="input-box">
+                <span class="details">Date</span>
+                <input type="text" name="date" value="{{$collection->date}}" placeholder="Enter Date" required>
+              </div>
+              <div class="input-box">
+                <span class="details">Status</span>
+                <input type="text" name="status" value="{{$collection->date}}" placeholder="Enter Date" required>
               </div>
             </div>
             <div class="button">
-              <input type="submit" value="Update">
+              <input type="submit" value="Update Collection">
             </div>
           </form>
+    
         </div>
       </div>
       <div class="footer"></div>    

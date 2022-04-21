@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('collections', function (Blueprint $table) {
+        Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('farmer_id')->constrained('add_farmers')->cascadeOnDelete();
+            $table->string('farmer_name');
+            $table->double('farmer_id');
             $table->string('milk_amount');
             $table->string('price');
-            $table->string('date');
             $table->string('status');
             $table->timestamps();
         });
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('collections');
+        Schema::dropIfExists('payments');
     }
 };

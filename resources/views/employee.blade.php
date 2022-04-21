@@ -18,10 +18,10 @@
           <a class="nav-btn" href="{{ url('/home') }}">Home</a>
             <a class="nav-btn" href="{{ url('/farmer-list') }}">Farmers</a>
             <a class="nav-btn" href="{{ url('/employees') }}">Employees</a>
-            <a class="nav-btn">Collection</a>
+            <a class="nav-btn" href="{{ url('/collection-list') }}">Collection</a>
             <a class="nav-btn" href="{{ url('/delivery') }}">Delivery</a>
-            <a class="nav-btn">Payment</a>
-            <a class="nav-btn">Report</a>
+            <a class="nav-btn" href="{{ url('payments/') }}">Payment</a>
+            <a class="nav-btn" href="{{ url('/report') }}">Report</a>
             {{-- <a class="nav-btn">Settings</a> --}}
         </div>
         <div class="content">
@@ -29,9 +29,9 @@
                 <h1 class="table-name">Employee List</h1>
                 <tr>
                   <th>Name</th>
-                  <th>Id No:</th>
+                  <th>Id No</th>
                   <th>Email</th>
-                  <th>Phone:</th>
+                  <th>Phone</th>
                   <th>Role</th>
                   <th>Action</th>
                 </tr>

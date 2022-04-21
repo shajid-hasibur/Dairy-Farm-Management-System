@@ -16,10 +16,10 @@
             <a class="nav-btn" href="{{ url('/home') }}">Home</a>
             <a class="nav-btn" href="{{ url('/farmer-list') }}">Farmers</a>
             <a class="nav-btn" href="{{ url('/employees') }}">Employees</a>
-            <a class="nav-btn" href="#">Collection</a>
+            <a class="nav-btn" href="{{ url('/collection-list') }}">Collection</a>
             <a class="nav-btn" href="{{ url('/delivery') }}">Delivery</a>
-            <a class="nav-btn" href="#">Payment</a>
-            <a class="nav-btn" href="#">Report</a>
+            <a class="nav-btn" href="{{ url('payments/') }}">Payment</a>
+            <a class="nav-btn" href="{{ url('/report') }}">Report</a>
             {{-- <a class="nav-btn" href="#">Settings</a> --}}
         </div>
         <div class="reg-form">

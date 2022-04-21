@@ -136,7 +136,8 @@ tr:hover{
     border-radius: 5px;
     height: 30px;
     line-height: 30px;
-    width: 100px;
+    width: 150px;
+    margin-top: 350px;
 }
 .addbtn:hover{
     background-color: rgb(21, 93, 247);
