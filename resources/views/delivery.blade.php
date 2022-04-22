@@ -25,11 +25,12 @@
             <a class="nav-btn" href="{{ url('/delivery') }}">Delivery</a>
             <?php if($login_user->role == '1') { ?>
             <a class="nav-btn" href="{{ url('payments/') }}">Payment</a>
-            <a class="nav-btn" href="{{ url('/report') }}">Report</a>
+            {{-- <a class="nav-btn" href="{{ url('/report') }}">Report</a> --}}
           <?php } ?>
             {{-- <a class="nav-btn">Setting</a> --}}
         </div>
         <div class="content">
+        
             <table class="table-content">
                 <h1 class="table-name">Delivery List</h1>
                 <tr>

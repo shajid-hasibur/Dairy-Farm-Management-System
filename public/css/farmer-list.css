@@ -137,7 +137,7 @@ tr:hover{
     height: 30px;
     line-height: 30px;
     width: 150px;
-    margin-top: 350px;
+    /* margin-top: 150px; */
 }
 .addbtn:hover{
     background-color: rgb(21, 93, 247);
@@ -161,4 +161,14 @@ tr:hover{
     text-decoration: none;
     font-weight: 400;
     font-size: large;
+}
+
+.text1{
+    text-align: center;
+}
+
+#text2{
+    font-family: Helvetica;
+    font-weight: 500;
+    font-size: 18px;    
 }

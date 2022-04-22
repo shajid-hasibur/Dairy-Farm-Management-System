@@ -100,11 +100,11 @@ Route::middleware(['auth','isAdmin'])->group(function(){
 
     Route::get('payments/',[PaymentController::class,'innerJoin']);
 
-    Route::get('/generate-pdf',[PDFController::class,'generatePDF']);
+    // Route::get('/generate-pdf',[PDFController::class,'generatePDF'])->name('download-pdf');
 
-    Route::get('/report',[PDFController::class,'report']);
+    // Route::get('/report',[PDFController::class,'report']);
 
-    // Route::get('add-payment',[PaymentController::class,'show']);
+
 
 });
 
@@ -118,9 +118,7 @@ Route::middleware(['auth'])->group(function(){
 
 });
 
-//Route::post('login-user',[LoginController::class,'login'])->name('login-user');
 
-//});
 Auth::routes();
 
     Route::get('/home', [HomeController::class, 'index'])->name('home');

@@ -21,6 +21,7 @@ class DeliveryController extends Controller
         return view('delivery',compact('users','login_user'));
     }
 
+
     public function index(){
         return view('add-delivery');
     }
