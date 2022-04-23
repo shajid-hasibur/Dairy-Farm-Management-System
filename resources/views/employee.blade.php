@@ -26,7 +26,7 @@
         </div>
         <div class="content">
             <table class="table-content">
-                <h1 class="table-name">Employee List</h1>
+                <h1 class="table-name">Employees</h1>
                 <tr>
                   <th>Name</th>
                   <th>Id No</th>

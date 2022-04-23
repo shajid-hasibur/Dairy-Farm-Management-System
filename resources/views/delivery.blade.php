@@ -32,7 +32,7 @@
         <div class="content">
         
             <table class="table-content">
-                <h1 class="table-name">Delivery List</h1>
+                <h1 class="table-name">Deliveries</h1>
                 <tr>
                   <th>Company Name</th>
                   <th>Company Id</th>
