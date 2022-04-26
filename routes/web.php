@@ -102,7 +102,11 @@ Route::middleware(['auth','isAdmin'])->group(function(){
 
     // Route::get('/generate-pdf',[PDFController::class,'generatePDF'])->name('download-pdf');
 
-    // Route::get('/report',[PDFController::class,'report']);
+    Route::get('/report',[PDFController::class,'pdf']);
+
+    // Route::get('/payment-report/{id}',[PDFController::class,'paymentReport']);
+
+    Route::get('/delivery-report/{id}',[PDFController::class,'report'])->name('view.delivery');
 
 
 

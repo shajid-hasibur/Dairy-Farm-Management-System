@@ -11,8 +11,12 @@
     <div class="container">
         <div class="header"><h1>Milk Collection & Distribution System</h1>
           <div class="btn-logout">
-            <a class="logout" href="{{ route('home') }}">Logout</a>
-          </div>  
+            <a class="logout" href="{{ route('logout') }}" onclick="event.preventDefault(); 
+            document.getElementById('logout-form').submit();">Logout</a>
+             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+              @csrf
+            </form>
+          </div>    
         </div>
         <div class="nav-bar">
           <a class="nav-btn" href="{{ url('/home') }}">Home</a>
@@ -21,7 +25,7 @@
             <a class="nav-btn" href="{{ url('/collection-list') }}">Collection</a>
             <a class="nav-btn" href="{{ url('/delivery') }}">Delivery</a>
             <a class="nav-btn" href="{{ url('payments/') }}">Payment</a>
-            {{-- <a class="nav-btn" href="{{ url('/report') }}">Report</a> --}}
+            <a class="nav-btn" href="{{ url('/report') }}">Report</a>
             {{-- <a class="nav-btn">Setting</a> --}}
         </div>
         <div class="content">

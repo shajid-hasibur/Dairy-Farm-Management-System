@@ -21,13 +21,14 @@
             <a class="nav-btn" href="{{ url('/collection-list') }}">Collection</a>
             <a class="nav-btn" href="{{ url('/delivery') }}">Delivery</a>
             <a class="nav-btn" href="{{ url('payments/') }}">Payment</a>
-            {{-- <a class="nav-btn" href="{{ url('/report') }}">Report</a> --}}
+            <a class="nav-btn" href="{{ url('/report') }}">Report</a>
             {{-- <a class="nav-btn">Setting</a> --}}
         </div>
         <div class="content">
             <h1 class="table-name">Report</h1>
             <div class="text1">
                 <p id="text2">To get the pdf of desire page please click download button</p>
+                <strong>{{ $collection->farmer_id }}</strong>
             </div>
         </div>
         <div class="add">
