@@ -25,7 +25,7 @@
             <a class="nav-btn" href="{{ url('/collection-list') }}">Collection</a>
             <a class="nav-btn" href="{{ url('/delivery') }}">Delivery</a>
             <a class="nav-btn" href="{{ url('payments/') }}">Payment</a>
-            <a class="nav-btn" href="{{ url('/report') }}">Report</a>
+            {{-- <a class="nav-btn" href="{{ url('/report') }}">Report</a> --}}
             {{-- <a class="nav-btn">Setting</a> --}}
         </div>
         <div class="content">
@@ -40,7 +40,7 @@
                   <th>Price</th>
                   <th>Date</th>
                   <th>Status</th>
-                  <th>Action</th>
+                  {{-- <th>Action</th> --}}
                 </tr>
                 @foreach ($users as $user)
                 <tr>
@@ -51,7 +51,7 @@
                   <td>{{ $user->price }}</td>
                   <td>{{ $user->date }}</td>
                   <td>{{ $user->status }}</td>
-                  <td><a class="table-btn" href="{{ url('/payment-report',$user->id) }}">View</a></td>
+                  {{-- <td><a class="table-btn" href="{{ url('/payment-report',$user->id) }}">View</a></td> --}}
                   {{-- <td>
                       <a class="table-btn" href="#">Update</a>
                       <a class="table-btn1" href="#">Delete</a>

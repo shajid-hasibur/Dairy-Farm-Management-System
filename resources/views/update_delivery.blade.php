@@ -19,7 +19,7 @@
             <a class="nav-btn" href="{{ url('/collection-list') }}">Collection</a>
             <a class="nav-btn" href="{{ url('/delivery') }}">Delivery</a>
             <a class="nav-btn" href="{{ url('payments/') }}">Payment</a>
-            <a class="nav-btn" href="{{ url('/report') }}">Report</a>
+            {{-- <a class="nav-btn" href="{{ url('/report') }}">Report</a> --}}
             {{-- <a class="nav-btn" href="#">Settings</a> --}}
         </div>
         <div class="reg-form">
@@ -52,8 +52,12 @@
                 <input type="text" name="price" placeholder="Enter the price" value="{{ $data['price'] }}" required>
               </div>
               <div class="input-box">
-                <span class="details">Status</span>
-                <input type="text" name="status" placeholder="status" value="{{ $data['status'] }}" required>
+                <span class="details">Delivery Status</span>
+                <input type="text" name="delivery_status" placeholder="delivery status" value="{{ $data['delivery_status'] }}" required>
+              </div>
+              <div class="input-box">
+                <span class="details">Payment Status</span>
+                <input type="text" name="payment_status" placeholder="Payment status" value="{{ $data['payment_status'] }}" required>
               </div>
               {{-- <div class="input-box">
                 <span class="details">Farmer's Phone NO:</span>

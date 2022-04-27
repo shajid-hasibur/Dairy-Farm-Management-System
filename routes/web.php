@@ -108,6 +108,10 @@ Route::middleware(['auth','isAdmin'])->group(function(){
 
     Route::get('/delivery-report/{id}',[PDFController::class,'report'])->name('view.delivery');
 
+    Route::get('/assign/{id}',[DeliveryController::class,'assign'])->name('assign');
+
+    Route::put('/assign-post/{id}',[DeliveryController::class,'store'])->name('assign.store');
+
 
 
 });

@@ -29,7 +29,7 @@
             <a class="nav-btn" href="{{ url('/delivery') }}">Delivery</a>
             <?php if($login_user->role == '1') { ?>
             <a class="nav-btn" href="{{ url('payments/') }}">Payment</a>
-            <a class="nav-btn" href="{{ url('/report') }}">Report</a>
+            {{-- <a class="nav-btn" href="{{ url('/report') }}">Report</a> --}}
           <?php } ?>
             {{-- <a class="nav-btn">Setting</a> --}}
         </div>
@@ -43,7 +43,9 @@
                   <th>Address</th>
                   <th>Milk Amount</th>
                   <th>Price</th>
-                  <th>Status</th>
+                  <th>Delivery Man</th>
+                  <th>Delivery Status</th>
+                  <th>Payment Status</th>
                   <th>Action</th>
                 </tr>
                 @foreach ($users as $user)
@@ -53,7 +55,17 @@
                   <td>{{ $user->address }}</td>
                   <td>{{ $user->milk_amount }}</td>
                   <td>{{ $user->price }}</td>
-                  <td>{{ $user->status }}</td>
+                  @if ($user->employee_id=='')
+                  <td>
+                    <a class="addbtn" href="{{route('assign',$user->id)}}">Assign Deliveryman</a>
+
+                  </td>
+                  @else
+                  <td> {{ $user->employee->name }} </td>
+
+                @endif
+                  <td>{{ $user->delivery_status }}</td>
+                  <td>{{ $user->payment_status }}</td>
                   <td>
                       <a class="table-btn" href="{{ route('view.delivery',$user->id) }}">View</a>
                       <a class="table-btn" href="{{ route('update.delivery',$user->id) }}">Update</a>

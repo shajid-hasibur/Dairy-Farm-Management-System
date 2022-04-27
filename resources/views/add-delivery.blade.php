@@ -19,7 +19,7 @@
             <a class="nav-btn" href="{{ url('/collection-list') }}">Collection</a>
             <a class="nav-btn" href="{{ url('/delivery') }}">Delivery</a>
             <a class="nav-btn" href="{{ url('payments/') }}">Payment</a>
-            <a class="nav-btn" href="{{ url('/report') }}">Report</a>
+            {{-- <a class="nav-btn" href="{{ url('/report') }}">Report</a> --}}
             {{-- <a class="nav-btn" href="#">Settings</a> --}}
         </div>
         <div class="reg-form">
@@ -49,8 +49,12 @@
                 <input type="text" name="price" placeholder="Enter the price" required>
               </div>
               <div class="input-box">
-                <span class="details">Status</span>
-                <input type="text" name="status" placeholder="status" required>
+                <span class="details">Delivery Status</span>
+                <input type="text" name="delivery_status" placeholder="delivery status" required>
+              </div>
+              <div class="input-box">
+                <span class="details">Payment Status</span>
+                <input type="text" name="payment_status" placeholder="payment status" required>
               </div>
             </div>
             <div class="button">

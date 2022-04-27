@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
 use App\Models\delivery;
+use App\Models\employee;
 use App\Models\Users;
 
 class DeliveryController extends Controller
@@ -32,7 +33,8 @@ class DeliveryController extends Controller
             'address' => 'required',
             'milk_amount' => 'required',
             'price' => 'required',
-            'status' => 'required'
+            'delivery_status' => 'required',
+            'payment_status' => 'required'
         ]);
 
         delivery::create($req->all());
@@ -55,7 +57,8 @@ class DeliveryController extends Controller
         $data->address=$request->input('address');
         $data->milk_amount=$request->input('milk_amount');
         $data->price=$request->input('price');
-        $data->status=$request->input('status');
+        $data->delivery_status=$request->input('delivery_status');
+        $data->delivery_status=$request->input('payment_status');
         
         $data->update();
 
@@ -67,4 +70,25 @@ class DeliveryController extends Controller
         delivery::find($id)->delete();
         return redirect()->back();
     }
+
+    public function assign($id)
+    {
+        $delivery=delivery::find($id);
+        $employees=employee::all();
+        
+        return view('assign-delivery',compact('employees','delivery'));
+    }
+
+    public function store(Request $request,$id){
+        $delivery=delivery::find($id);
+        $delivery->update([
+
+            'employee_id'=>$request->employee_id,
+           
+        ]);
+        Toastr::success('Employee Assigned Successfully');
+
+        return redirect()->route('fetch.delivery');
+    }
+
 }

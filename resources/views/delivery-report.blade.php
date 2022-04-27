@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Report</title>
 </head>
 <body>
     <div class="container">
@@ -18,7 +18,10 @@
     <p><b>Address: {{$user->address}}</b></p>
     <p><b>Milk Amount: {{$user->milk_amount}}</b></p>
     <p><b>Price: {{$user->price }}</b></p>
-    <p><b>Status: {{$user->status}}<b></p>
+    <p><b>Deliveryman: {{$user->employee->name }}</b></p>
+    <p><b>Delivery Status: {{$user->delivery_status}}<b></p>
+    <p><b>Payment Status: {{$user->payment_status}}<b></p>
+    
 
      {{-- <a href="{{route('view.assign.volunteer',$cause->id)}}"><button type="button" class="btn btn-info">View Volunteer</button></a><br><br> --}}
     </div>
