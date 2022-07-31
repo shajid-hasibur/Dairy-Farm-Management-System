@@ -13,14 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-       Schema::create('add_farmers', function (Blueprint $table) {
-            $table->string('serial_no');
+        Schema::create('photos', function (Blueprint $table) {
             $table->id();
-            $table->string('name',60);
-            $table->string('locality',60);
-            $table->string('farmers_account',15);
-            $table->string('farmers_phone',15);
-            $table->string('farmer_type',20)->default('Irregular');
+            $table->string('name');
+            $table->string('size');
             $table->timestamps();
         });
     }
@@ -32,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('add_farmers');
+        Schema::dropIfExists('photos');
     }
 };

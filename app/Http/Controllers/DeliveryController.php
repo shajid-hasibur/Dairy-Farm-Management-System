@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Users;
+use App\Models\delivery;
+use App\Models\employee;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
-use App\Models\delivery;
-use App\Models\employee;
-use App\Models\Users;
 
 class DeliveryController extends Controller
 {
@@ -16,10 +16,10 @@ class DeliveryController extends Controller
     }
 
     public function fetch(){
-
+        $employee=employee::all();
         $login_user = auth()->user();
         $users=delivery::all();
-        return view('delivery',compact('users','login_user'));
+        return view('delivery',compact('users','login_user','employee'));
     }
 
 
@@ -33,8 +33,7 @@ class DeliveryController extends Controller
             'address' => 'required',
             'milk_amount' => 'required',
             'price' => 'required',
-            'delivery_status' => 'required',
-            'payment_status' => 'required'
+            
         ]);
 
         delivery::create($req->all());
@@ -57,8 +56,7 @@ class DeliveryController extends Controller
         $data->address=$request->input('address');
         $data->milk_amount=$request->input('milk_amount');
         $data->price=$request->input('price');
-        $data->delivery_status=$request->input('delivery_status');
-        $data->delivery_status=$request->input('payment_status');
+        $data->status=$request->input('status');
         
         $data->update();
 
@@ -89,6 +87,31 @@ class DeliveryController extends Controller
         Toastr::success('Employee Assigned Successfully');
 
         return redirect()->route('fetch.delivery');
+    }
+
+
+    public function statusDelivered($id)
+    {
+        $status=delivery::find($id)->update([
+            'status'=>'Delivered'
+        ]);
+        return redirect()->back();
+    }
+    public function statusDamaged($id)
+    {
+        $status=delivery::find($id)->update([
+            'status'=>'Damaged'
+        ]);
+        return redirect()->back();
+
+    }
+    public function statusRejected($id)
+    {
+        $status=delivery::find($id)->update([
+            'status'=>'Rejected'
+        ]);
+        return redirect()->back();
+
     }
 
 }

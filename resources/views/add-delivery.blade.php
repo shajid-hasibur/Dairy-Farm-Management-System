@@ -48,10 +48,10 @@
                 <span class="details">Price</span>
                 <input type="text" name="price" placeholder="Enter the price" required>
               </div>
-              <div class="input-box">
+              {{-- <div class="input-box">
                 <span class="details">Delivery Status</span>
                 <input type="text" name="delivery_status" placeholder="delivery status" required>
-              </div>
+              </div> --}}
               <div class="input-box">
                 <span class="details">Payment Status</span>
                 <input type="text" name="payment_status" placeholder="payment status" required>

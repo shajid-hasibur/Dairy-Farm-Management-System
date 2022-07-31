@@ -17,10 +17,10 @@ return new class extends Migration
             $table->string('company_name');
             $table->id();
             $table->unsignedBigInteger('employee_id')->nullable();
-            $table->string('address');
-            $table->string('milk_amount');
-            $table->string('price');
-            $table->string('delivery_status');
+            $table->text('address');
+            $table->double('milk_amount');
+            $table->double('price');
+            $table->string('status')->default('Processing');
             $table->string('payment_status');
             $table->timestamps();
         });

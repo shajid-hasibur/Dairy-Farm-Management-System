@@ -38,6 +38,8 @@
                   <th>Locality</th>
                   <th>Account No:</th>
                   <th>Phone No:</th>
+                  {{-- <th>Mark As Regular</th> --}}
+                  <th>Farmer Type</th>
                   <th>Action</th>
                 </tr>
                 @foreach ($users as $user)
@@ -48,6 +50,13 @@
                   <td>{{ $user->locality }}</td>
                   <td>{{ $user->farmers_account }}</td>
                   <td>{{ $user->farmers_phone }}</td>
+                  {{-- <td>
+                    @if($user->farmer_type=='Irregular')
+                    <a href="{{route('regular.farmer',$user->id)}}">Mark as regular</a>
+                    @else
+                    <a class="table-btn" href="">{{$user->farmer_type}}</a>
+                    @endif
+                  </td> --}}
                   <td>
                       <a class="table-btn" href="{{ route('update.farmer',$user->id) }}">Update</a>
                       <a class="table-btn1" href="{{ route('delete.farmer',$user->id)}}">Delete</a>

@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('farmer_id')->constrained('add_farmers')->cascadeOnDelete();
             $table->string('milk_amount');
-            $table->string('price');
-            $table->string('date');
+            $table->double('price');
+            $table->date('date');
             $table->string('status');
             $table->timestamps();
         });

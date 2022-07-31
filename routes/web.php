@@ -11,6 +11,8 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PDFController;
+use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\UpdateDataController;
 use App\Models\add_farmer;
 use Illuminate\Support\Facades\Auth;
@@ -112,7 +114,11 @@ Route::middleware(['auth','isAdmin'])->group(function(){
 
     Route::put('/assign-post/{id}',[DeliveryController::class,'store'])->name('assign.store');
 
+    Route::get('list',[ReportController::class,'operation']);
 
+    Route::get('/upload',[PhotoController::class,'load']);
+
+    Route::POST('/upload',[PhotoController::class,'store']);
 
 });
 
@@ -123,6 +129,12 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/delivery',[DeliveryController::class,'show'])->name('delivery');
 
     Route::get('/delivery',[DeliveryController::class,'fetch'])->name('fetch.delivery');
+
+    Route::get('/status/delivered/{id}',[DeliveryController::class,'statusDelivered'])->name('status.delivered');
+
+    Route::get('/status/damaged/{id}',[DeliveryController::class,'statusDamaged'])->name('status.damaged');
+
+    Route::get('/status/rejected/{id}',[DeliveryController::class,'statusRejected'])->name('status.rejected');
 
 });
 

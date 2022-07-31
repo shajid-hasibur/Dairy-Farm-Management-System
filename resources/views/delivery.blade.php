@@ -29,7 +29,7 @@
             <a class="nav-btn" href="{{ url('/delivery') }}">Delivery</a>
             <?php if($login_user->role == '1') { ?>
             <a class="nav-btn" href="{{ url('payments/') }}">Payment</a>
-            {{-- <a class="nav-btn" href="{{ url('/report') }}">Report</a> --}}
+            <a class="nav-btn" href="{{ url('/report') }}">Report</a>
           <?php } ?>
             {{-- <a class="nav-btn">Setting</a> --}}
         </div>
@@ -44,8 +44,7 @@
                   <th>Milk Amount</th>
                   <th>Price</th>
                   <th>Delivery Man</th>
-                  <th>Delivery Status</th>
-                  <th>Payment Status</th>
+                  <th>Status</th>
                   <th>Action</th>
                 </tr>
                 @foreach ($users as $user)
@@ -56,17 +55,27 @@
                   <td>{{ $user->milk_amount }}</td>
                   <td>{{ $user->price }}</td>
                   @if ($user->employee_id=='')
-                  <td>
-                    <a class="addbtn" href="{{route('assign',$user->id)}}">Assign Deliveryman</a>
+                    <td>
+                      <a class="addbtn" href="{{route('assign',$user->id)}}">Assign Deliveryman</a>
 
-                  </td>
+                    </td>
+                    @else
+                    <td> {{ $user->employee->name }} </td>
+
+                  @endif
+
+                  <td>
+                  @if($login_user->role=='0' && $user->status=='Processing')
+                  <a class="table-btn" href="{{route('status.delivered',$user->id)}}">Delivered</a>
+                  <a class="table-btn" href="{{route('status.damaged',$user->id)}}">Damaged</a>
+                  <a class="table-btn" href="{{route('status.rejected',$user->id)}}">Rejected</a>
                   @else
-                  <td> {{ $user->employee->name }} </td>
-
-                @endif
-                  <td>{{ $user->delivery_status }}</td>
-                  <td>{{ $user->payment_status }}</td>
+                  <a class="table-btn" href="#">{{$user->status}}</a>
+                  @endif
+                  </td>
+                  
                   <td>
+
                       <a class="table-btn" href="{{ route('view.delivery',$user->id) }}">View</a>
                       <a class="table-btn" href="{{ route('update.delivery',$user->id) }}">Update</a>
                       <a class="table-btn1" href="{{ route('delete.delivery',$user->id) }}">Delete</a>

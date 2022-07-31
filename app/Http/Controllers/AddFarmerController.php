@@ -29,4 +29,12 @@ class AddFarmerController extends Controller
 
         return redirect()->route('add_farmer.store')->with('Data stored successfully!');
     }
+
+    public function regularFarmer($id)
+    {
+        $regular_farmer=add_farmer::find($id)->update([
+            'farmer_type'=>'Regular Farmer'
+        ]);
+        return redirect()->back();
+    }
 }

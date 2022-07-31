@@ -50,7 +50,7 @@
                   </div>
                   <div class="input-box">
                     <span class="details">Date</span>
-                    <input type="text" name="date" placeholder="Enter Date" required>
+                    <input type="date" name="date" placeholder="Enter Date" required>
                   </div>
                   <div class="input-box">
                     <span class="details">Status</span>
