@@ -18,6 +18,7 @@ class FetchDataController extends Controller
         // $users = DB::select('select serial_no, id, name, locality, farmers_account, farmers_phone  from add_farmers');
         // return view('farmer-list',['users'=>$users]);
         $users=add_farmer::all();
-        return view('farmer-list',compact('users'));
+        $data = add_farmer::count('id');
+        return view('farmer-list',compact('users','data'));
     }
 }

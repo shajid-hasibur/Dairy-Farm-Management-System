@@ -24,7 +24,8 @@
             <a class="nav-btn" href="{{ url('/employees') }}">Employees</a>
             <a class="nav-btn"href="{{ url('/collection-list') }}">Collection</a>
             <a class="nav-btn" href="{{ url('/delivery') }}">Delivery</a>
-            <a class="nav-btn" href="{{ url('payments/') }}">Payment</a>
+            <a class="nav-btn" href="{{ url('/payment') }}">Payment</a>
+            <a class="nav-btn" href="{{ url('/total_report') }}">Report</a>
             {{-- <a class="nav-btn" href="{{ url('/report') }}">Report</a> --}}
             {{-- <a class="nav-btn">Setting</a> --}}
         </div>
@@ -50,20 +51,21 @@
                   <td>{{ $user->locality }}</td>
                   <td>{{ $user->farmers_account }}</td>
                   <td>{{ $user->farmers_phone }}</td>
-                  {{-- <td>
+                  <td>
                     @if($user->farmer_type=='Irregular')
                     <a href="{{route('regular.farmer',$user->id)}}">Mark as regular</a>
                     @else
-                    <a class="table-btn" href="">{{$user->farmer_type}}</a>
+                    <a class="table-btn7" href="">{{$user->farmer_type}}</a>
                     @endif
-                  </td> --}}
+                  </td>
                   <td>
                       <a class="table-btn" href="{{ route('update.farmer',$user->id) }}">Update</a>
                       <a class="table-btn1" href="{{ route('delete.farmer',$user->id)}}">Delete</a>
                   </td>
                 </tr>
                 @endforeach
-              </table>    
+              </table>
+              <span class="sum">Total Member : {{ $data }}</span>    
         </div>
         <div class="add">
         <a class="addbtn" href="add-farmer">Add Farmer</a>

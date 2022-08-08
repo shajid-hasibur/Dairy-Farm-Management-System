@@ -37,4 +37,6 @@ class AddFarmerController extends Controller
         ]);
         return redirect()->back();
     }
+
+    
 }

@@ -17,7 +17,8 @@ class EmployeeController extends Controller
     public function index(){
 
         $users=employee::all();
-        return view('employee',compact('users'));
+        $data=employee::count('id');
+        return view('employee',compact('users','data'));
     }
 
     //delete data

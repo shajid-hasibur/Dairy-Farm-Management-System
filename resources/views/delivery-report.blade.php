@@ -39,6 +39,6 @@
             window.print();
             document.body.innerHTML = originalContents;
         }
-        </script>
+    </script>
 </body>
 </html>

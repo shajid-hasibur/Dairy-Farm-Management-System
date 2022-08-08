@@ -9,6 +9,7 @@ use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\DeliveryController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\PhotoController;
@@ -100,7 +101,9 @@ Route::middleware(['auth','isAdmin'])->group(function(){
 
     Route::put('/collection-update/{id}',[CollectionController::class,'update'])->name('collection.update');
 
-    Route::get('payments/',[PaymentController::class,'innerJoin']);
+    // Route::get('payments/',[PaymentController::class,'innerJoin']);
+
+    Route::get('/payment',[PaymentController::class,'show']);
 
     // Route::get('/generate-pdf',[PDFController::class,'generatePDF'])->name('download-pdf');
 
@@ -114,11 +117,19 @@ Route::middleware(['auth','isAdmin'])->group(function(){
 
     Route::put('/assign-post/{id}',[DeliveryController::class,'store'])->name('assign.store');
 
-    Route::get('list',[ReportController::class,'operation']);
+    Route::get('/total_report',[ReportController::class,'operation']);
 
     Route::get('/upload',[PhotoController::class,'load']);
 
     Route::POST('/upload',[PhotoController::class,'store']);
+
+    Route::get('/regular/farmer/{id}',[AddfarmerController::class,'regularFarmer'])->name('regular.farmer');
+
+    // Route::get('/sum',[CollectionController::class,'iubat']);
+
+    // Route::get('/order/{id}',[OrderController::class,'show']);
+
+    // Route::post('/order_update',[OrderController::class,'order']);
 
 });
 
@@ -135,6 +146,10 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/status/damaged/{id}',[DeliveryController::class,'statusDamaged'])->name('status.damaged');
 
     Route::get('/status/rejected/{id}',[DeliveryController::class,'statusRejected'])->name('status.rejected');
+
+    Route::get('/order/{id}',[OrderController::class,'show']);
+
+    Route::post('/order_update',[OrderController::class,'order']);
 
 });
 

@@ -24,7 +24,8 @@
             <a class="nav-btn" href="{{ url('/employees') }}">Employees</a>
             <a class="nav-btn" href="{{ url('/collection-list') }}">Collection</a>
             <a class="nav-btn" href="{{ url('/delivery') }}">Delivery</a>
-            <a class="nav-btn" href="{{ url('payments/') }}">Payment</a>
+            <a class="nav-btn" href="{{ url('/payment') }}">Payment</a>
+            <a class="nav-btn" href="{{ url('/total_report') }}">Report</a>
             {{-- <a class="nav-btn" href="{{ url('/report') }}">Report</a> --}}
             {{-- <a class="nav-btn">Setting</a> --}}
         </div>
@@ -57,7 +58,9 @@
                   </td>
                 </tr>
                 @endforeach
-              </table>    
+              </table>
+              <span class="sum">Total Milk Amount : {{ $sum }} Liter</span>
+              <span class="Totalprice">Total Price : {{ $totalPrice }}/- BDT</span>
         </div>
         <div class="add">
         <a class="addbtn" href="{{route('collection.create')}}">Add</a>

@@ -161,3 +161,9 @@ tr:hover{
     font-weight: 400;
     font-size: large;
 }
+
+.count{
+    margin-left: 119px;
+    margin-right: 0px;
+    font-weight: bold;
+}

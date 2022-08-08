@@ -24,8 +24,8 @@
             <a class="nav-btn" href="{{ url('/employees') }}">Employees</a>
             <a class="nav-btn" href="{{ url('/collection-list') }}">Collection</a>
             <a class="nav-btn" href="{{ url('/delivery') }}">Delivery</a>
-            <a class="nav-btn" href="{{ url('payments/') }}">Payment</a>
-            {{-- <a class="nav-btn" href="{{ url('/report') }}">Report</a> --}}
+            <a class="nav-btn" href="{{ url('/payment') }}">Payment</a>
+            <a class="nav-btn" href="{{ url('/total_report') }}">Report</a>
             {{-- <a class="nav-btn">Setting</a> --}}
         </div>
         <div class="content">
@@ -35,22 +35,25 @@
                   {{-- <th>Serial No:</th> --}}
                   <th>Id</th>
                   <th>Farmer's Name</th>
-                  <th>Farmer's Id</th>
+                  <th>Farmer's Type</th>
                   <th>Milk Amount</th>
                   <th>Price</th>
+                  <th>Total Price</th>
                   <th>Date</th>
                   <th>Status</th>
                   {{-- <th>Action</th> --}}
                 </tr>
-                @foreach ($users as $user)
+                @foreach ($payment as $data)
+                {{-- @dd($data) --}}
                 <tr>
-                  <td>{{ $user->id }}</td>
-                  <td>{{ $user->name }}</td>
-                  <td>{{ $user->farmer_id }}</td>
-                  <td>{{ $user->milk_amount }}</td>
-                  <td>{{ $user->price }}</td>
-                  <td>{{ $user->date }}</td>
-                  <td>{{ $user->status }}</td>
+                  <td>{{ $data->id }}</td>
+                  <td>{{ $data->farmer->name }}</td>
+                  <td>{{ $data->farmer->farmer_type }}</td>
+                  <td>{{ $data->milk_amount }}</td>
+                  <td>{{ $data->price }}</td>
+                  <td>{{ $data->total_price }}</td>
+                  <td>{{ $data->collection->date }}</td>
+                  <td>{{ $data->status }}</td>
                   {{-- <td><a class="table-btn" href="{{ url('/payment-report',$user->id) }}">View</a></td> --}}
                   {{-- <td>
                       <a class="table-btn" href="#">Update</a>

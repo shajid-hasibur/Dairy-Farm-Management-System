@@ -19,7 +19,10 @@ return new class extends Migration
             $table->unsignedBigInteger('employee_id')->nullable();
             $table->text('address');
             $table->double('milk_amount');
+            $table->double('damage_amount')->nullable();
+            $table->date('delivery_date')->nullable();
             $table->double('price');
+            $table->string('days_passed')->default(0);
             $table->string('status')->default('Processing');
             $table->string('payment_status');
             $table->timestamps();

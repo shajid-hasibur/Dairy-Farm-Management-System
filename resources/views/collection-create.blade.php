@@ -18,7 +18,8 @@
             <a class="nav-btn" href="{{ url('/employees') }}">Employees</a>
             <a class="nav-btn" href="{{ url('/collection-list') }}">Collection</a>
             <a class="nav-btn" href="{{ url('/delivery') }}">Delivery</a>
-            <a class="nav-btn" href="{{ url('payments/') }}">Payment</a>
+            <a class="nav-btn" href="{{ url('/payment') }}">Payment</a>
+            <a class="nav-btn" href="{{ url('/total_report') }}">Report</a>
             {{-- <a class="nav-btn" href="{{ url('/report') }}">Report</a> --}}
             {{-- <a class="nav-btn" href="#">Settings</a> --}}
         </div>
@@ -58,8 +59,9 @@
                   </div>
                 </div>
                 <div class="button">
-                  <input type="submit" value="Add">
+                  <input type="submit" value="Save">
                 </div>
+                <a class="back" href="{{ url('/collection-list') }}">Back</a>
               </form>
     
         </div>

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('collections', function (Blueprint $table) {
             $table->id();
             $table->foreignId('farmer_id')->constrained('add_farmers')->cascadeOnDelete();
-            $table->string('milk_amount');
+            $table->double('milk_amount');
             $table->double('price');
             $table->date('date');
             $table->string('status');

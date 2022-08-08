@@ -7,12 +7,14 @@
     <title>Assign Employee</title>
     <style>
        body {
-          margin-top: 200px;
+          margin-top: 240px;
           background-color: rgb(213, 236, 169);
           text-align: center;
        }
        select {
             height: 30px;
+            width: 300px;
+            margin-top: 5px;
             background: rgb(213, 236, 169);
             outline: none;
             font-size: 15px;
@@ -35,12 +37,34 @@
             border-radius: 5px;
             height: 35px;
             line-height: 25px;
-            width: 100px;    
+            width: 300px;    
+       }
+       a{
+        text-decoration: none;
+        color: black;
+        text-align: center;
+        display: inline-block;
+        background-color: #f73e3e;
+        font-size: 17px;
+        font-weight: 500;
+        margin-top: 18px;
+        height: 35px;
+        line-height: 35px;
+        width: 300px;
+        border-radius: 5px;
+       }
+       a:hover{
+        background: #ecf5e1;
+        cursor: pointer;
        }
 
        input:hover{
-        background: rgb(21, 93, 247);
+        background: rgb(40, 108, 255);
         cursor: pointer;
+       }
+       h1{
+          font-weight: 800;
+          font-size: 40px;
        }
     </style>
 </head>
@@ -63,6 +87,7 @@
       <div class="button">
         <input type="submit" value="Assign">
       </div>
+        <a href="{{ route('fetch.delivery') }}">Back</a>
     </form>
 
 </body>

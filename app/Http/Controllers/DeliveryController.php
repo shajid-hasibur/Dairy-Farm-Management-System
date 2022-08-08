@@ -8,6 +8,8 @@ use App\Models\employee;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
+use DateTime;
+use Carbon\Carbon;
 
 class DeliveryController extends Controller
 {
@@ -19,7 +21,18 @@ class DeliveryController extends Controller
         $employee=employee::all();
         $login_user = auth()->user();
         $users=delivery::all();
-        return view('delivery',compact('users','login_user','employee'));
+        $data=delivery::sum('milk_amount');
+        $data2=delivery::sum('price');
+        foreach($users as $item){
+            $from=new DateTime($item->created_at);
+            $to=new DateTime(Carbon::now());
+            $days= $from->diff($to);
+            $item->update([
+                'days_passed'=>$days->days
+
+            ]);
+        }
+        return view('delivery',compact('users','login_user','employee','data','data2'));
     }
 
 
@@ -114,4 +127,4 @@ class DeliveryController extends Controller
 
     }
 
-}
+} 

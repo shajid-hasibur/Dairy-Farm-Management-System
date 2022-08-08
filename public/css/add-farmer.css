@@ -116,19 +116,19 @@ form .user-details .input-box{
       }
 
     form .button{
-     height: 45px;
+     height: 35px;
      margin: 35px 0
     }
     form .button input{
-     margin-top: 20px;
-     height: 100%;
-     width: 160px;
+     margin-top: 88px;
+     margin-right: 143px;
+     height: 35px;
+     width: 120px;
      border-radius: 5px;
      border: none;
      color: rgb(7, 7, 7);
-     font-size: 18px;
+     font-size: 15px;
      font-weight: 500;
-     letter-spacing: 1px;
      cursor: pointer;
      transition: all 0.3s ease;
      background: rgb(185 230 80);
@@ -137,6 +137,28 @@ form .user-details .input-box{
     /* transform: scale(0.99); */
     background: rgb(21, 93, 247);
     }
+    
+     .back{
+      margin-right: 225px;
+      float: right;
+      text-decoration: none;
+      color: black;
+      text-align: center;
+      display: grid;
+      background-color: #f73e3e;
+      font-size: 15px;
+      font-weight: 500;
+      margin-top: 18px;
+      height: 35px;
+      line-height: 35px;
+      width: 120px;
+      border-radius: 5px;
+     }
+     .back:hover{
+      /* transform: scale(0.99); */
+      background: rgb(21, 93, 247);
+      }
+     
     @media(max-width: 584px){
     .container{
     max-width: 100%;
