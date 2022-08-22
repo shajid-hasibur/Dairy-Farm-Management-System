@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Add Farmer</title>
+    <title>Order Summary</title>
     <link rel="stylesheet" href="{{ asset('css/add-farmer.css') }}">
     <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css"> 
 </head>
@@ -43,6 +43,10 @@
                 <input type="text" name="id" value="{{ $data['id'] }}" required>
               </div>
               <div class="input-box">
+                <span class="details">Delivery Man Id:</span>
+                <input type="text" name="employee_id" value="{{ $data['employee_id'] }}" required>
+              </div>
+              <div class="input-box">
                 <span class="details">Address:</span>
                 <input type="text" name="address" value="{{ $data['address']  }}" required>
               </div>
@@ -55,7 +59,7 @@
                 <input type="text" name="damage_amount" value="{{ $data['damage_amount']  }}" required>
               </div>
               <div class="input-box">
-                <span class="details">Delivery Date:</span>
+                <span class="details">Date:</span>
                 <input type="date" name="delivery_date" value="{{ $data['delivery_date'] }}" required>
               </div>
             </div>

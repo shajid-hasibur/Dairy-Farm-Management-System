@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farmer list</title>
     <link rel="stylesheet" href="{{ asset('css/farmer-list.css') }}">
+    <script src="https://kit.fontawesome.com/2dae312828.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
@@ -13,16 +14,18 @@
           <div class="btn-logout">
             <a class="logout" href="{{ route('logout') }}" onclick="event.preventDefault(); 
             document.getElementById('logout-form').submit();">Logout</a>
-             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
               @csrf
-            </form>
-          </div>  
+            </form> 
+          </div> 
+          <span class="user">{{ Auth::user()->name }}</span>
+          <i class="fa-solid fa-user"></i> 
         </div>
         <div class="nav-bar">
-          <a class="nav-btn" href="{{ url('/home') }}">Home</a>
+            <a class="nav-btn" href="{{ url('/home') }}">Home</a>
             <a class="nav-btn" href="{{ url('/farmer-list') }}">Farmers</a>
             <a class="nav-btn" href="{{ url('/employees') }}">Employees</a>
-            <a class="nav-btn"href="{{ url('/collection-list') }}">Collection</a>
+            <a class="nav-btn" href="{{ url('/collection-list') }}">Collection</a>
             <a class="nav-btn" href="{{ url('/delivery') }}">Delivery</a>
             <a class="nav-btn" href="{{ url('/payment') }}">Payment</a>
             <a class="nav-btn" href="{{ url('/total_report') }}">Report</a>

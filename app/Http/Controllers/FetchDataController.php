@@ -15,8 +15,7 @@ class FetchDataController extends Controller
         //$this->middleware('auth');
     }
     public function index(){
-        // $users = DB::select('select serial_no, id, name, locality, farmers_account, farmers_phone  from add_farmers');
-        // return view('farmer-list',['users'=>$users]);
+
         $users=add_farmer::all();
         $data = add_farmer::count('id');
         return view('farmer-list',compact('users','data'));

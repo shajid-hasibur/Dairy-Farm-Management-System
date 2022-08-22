@@ -73,7 +73,7 @@ tr:hover{
     background-color: rgb(247, 136, 45);
 }
 .table-btn1{
-    background-color: rgb(255, 79, 79);
+    background-color: rgb(255, 125, 125);
     border: none;
     color: black;
     padding: 5px 10px;
@@ -91,7 +91,19 @@ tr:hover{
 
 .table-btn1:hover{
     background-color: rgb(247, 136, 45);
+    cursor: pointer;
 }
+
+/* .reject-btn{
+    height: 10px;
+    width: 30px;
+} */
+
+#rejectbtn{
+    cursor: pointer;
+}
+
+
 .table-name{
     font-family: Helvetica;
     text-align: center;
@@ -122,6 +134,35 @@ tr:hover{
 }
 .add{
     grid-column: 7/-7;
+}
+
+.damage{
+
+    position: absolute;
+    height: 30px;
+    width: 150px;
+    margin-top: 10px;
+}
+
+.d-delivery{
+    background-color: #5997fb;
+    border: none;
+    color: black;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    height: 30px;
+    line-height: 30px;
+    width: 150px;
+}
+
+.d-delivery:hover{
+    background-color: rgb(21, 93, 247);
+    cursor: pointer;
 }
 .addbtn{
     background-color: rgb(185 230 80);
@@ -260,3 +301,32 @@ tr:hover{
     display: inherit;
     background-color: red;
 }
+
+/* .user::before{
+    position: absolute;
+    right: 60px;
+    top: 0px;
+    font-weight: 400;
+    font-size: 10px;
+    font-family: "Font Awesome 5 Free";
+    display: inline;
+
+} */
+.user{
+    position: absolute;
+    right: 110px;
+    top: 37px;
+    font-weight: 400;
+    /* padding-right: 10px; */
+}
+.fa-solid{
+    position: absolute;
+    font-size: 12px;
+    right: 160px;
+    top: 39px;   
+}
+
+
+
+
+

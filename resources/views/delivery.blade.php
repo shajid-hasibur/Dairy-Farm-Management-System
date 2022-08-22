@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delivery</title>
     <link rel="stylesheet" href="{{ asset('css/farmer-list.css') }}">
+    <script src="https://kit.fontawesome.com/2dae312828.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
@@ -16,30 +17,27 @@
              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
               @csrf
             </form>
-          </div>    
+          </div>
+          <span class="user">[ {{ Auth::user()->name }} ]</span>   
         </div>
         <div class="nav-bar">
-
-          <a class="nav-btn" href="{{ url('/home') }}">Home</a>
-           <?php if($login_user->role == '1') {?>
+          <?php if($login_user->role == '1') {?>
+            <a class="nav-btn" href="{{ url('/home') }}">Home</a>           
             <a class="nav-btn" href="{{ url('/farmer-list') }}">Farmers</a>
             <a class="nav-btn" href="{{ url('/employees') }}">Employees</a>
             <a class="nav-btn" href="{{ url('/collection-list') }}">Collection</a>
-          <?php } ?>
             <a class="nav-btn" href="{{ url('/delivery') }}">Delivery</a>
-            <?php if($login_user->role == '1') { ?>
             <a class="nav-btn" href="{{ url('/payment') }}">Payment</a>
             <a class="nav-btn" href="{{ url('/total_report') }}">Report</a>
           <?php } ?>
-            {{-- <a class="nav-btn">Setting</a> --}}
         </div>
         <div class="content">
         
             <table class="table-content">
                 <h1 class="table-name">Deliveries</h1>
                 <tr>
-                  <th>Company Name</th>
                   <th>Delivery Id</th>
+                  <th>Company Name</th>
                   <th>Address</th>
                   <th>Milk Amount</th>
                   <th>Price</th>
@@ -50,20 +48,19 @@
                 </tr>
                 @foreach ($users as $user)
                 <tr>
+                  <td>{{ $user->id}}</td>
                   <td>{{ $user->company_name }}</td>
-                  <td>{{ $user->id }}</td>
                   <td>{{ $user->address }}</td>
                   <td>{{ $user->milk_amount }}</td>
                   <td>{{ $user->price }}</td>
                   @if ($user->employee_id=='')
                     <td>
+                      <?php if($login_user->role == '1') {?>
                       <a class="addbtn1" href="{{route('assign',$user->id)}}">Assign</a>
-
+                      <?php } ?>
                     </td>
-                    @else
+                  @else
                     <td> {{ $user->employee->name }} </td>
-                    {{-- <td> {{ $user->employee->name }} </td> --}}
-
                   @endif
                   <td>{{$user->days_passed}}</td>  
                   <td>
@@ -71,18 +68,34 @@
                   <a class="table-btn4" href="{{route('status.delivered',$user->id)}}">Delivered</a>
                   <a class="table-btn4" href="{{route('status.damaged',$user->id)}}">Damaged</a>
                   {{-- <a class="table-btn" href="{{route('status.rejected',$user->id)}}">Rejected</a> --}}
-                  <a class="table-btn4" href="{{route('status.rejected',$user->id)}}" @if($user->days_passed<=3) disabled @endif>Reject</a>
+                  
+                  <a class="reject-btn" href="{{route('status.rejected',$user->id)}}" ><button id="rejectbtn"
+                     
+                   @if($user->days_left<=3) disabled @endif>Reject</button></a>
+                   {{-- <a class="reject-btn" href="{{route('status.rejected',$user->id)}}"><button id="rejectbtn">Reject --}}
+                    {{-- @if ($user->days_left<=3)  --}}
+                    
+                    {{-- <script>document.getElementById("rejectbtn").disabled=true;</script> --}}
+                    {{-- @else --}}
+                    {{-- <script>document.getElementById("rejectbtn").disabled=false;</script> --}}
+                    {{-- @endif --}}
+                    {{-- </button></a>  --}}
+
+
                   @else
                   <a class="table-btn4" href="#">{{$user->status}}</a>
                   @endif
                   </td>
-                  
                   <td>
-
+                    <?php if($login_user->role == '1') {?>
                       <a class="table-btn" href="{{ route('view.delivery',$user->id) }}">View</a>
                       <a class="table-btn" href="{{ route('update.delivery',$user->id) }}">Update</a>
                       <a class="table-btn1" href="{{ route('delete.delivery',$user->id) }}">Delete</a>
+                    <?php } ?>
+                    
+                    <?php if($login_user->role == '0') {?>
                       <a class="table-btn1" href="{{ url('/order',$user->id) }}">Check</a>
+                    <?php } ?>
                   </td>
                 </tr>
                 @endforeach
@@ -91,8 +104,16 @@
               <span class="Totalprice1">Total Earnings : {{ $data2 }}</span>    
         </div>
         <div class="add">
+        <?php if($login_user->role == '1') {?>  
         <a class="addbtn" href="{{ url('/add-delivery') }}">Add Delivery</a>
+        <?php } ?>
+        <div class="damage">
+          <?php if($login_user->role == '1') {?>
+          <a class="d-delivery" href="{{ url('/damage_report') }}">Damage Delivery</a>
+          <?php } ?> 
+       </div>
         </div>
+        
         <div class="footer"></div>
     </div>
 </body>

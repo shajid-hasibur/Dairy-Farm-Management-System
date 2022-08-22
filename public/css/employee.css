@@ -52,45 +52,46 @@ tr:hover{
     background-color: rgb(248, 225, 123);
 }
 .table-btn{
-    background-color: #d4cdc1;
+    background-color: #5997fb;
     border: none;
     color: black;
     padding: 5px 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 17px;
+    font-size: 15px;
     font-family: serif;
     font-weight: 500;
     border-radius: 5px;
-    height: 25px;
-    line-height: 25px;
-    width: 70px;
+    height: 15px;
+    line-height: 15px;
+    width: 45px;
     margin-left: 10px;
 }
 
 .table-btn:hover{
-    background-color: rgb(21, 93, 247);
+    background-color: rgb(247, 136, 45);
 }
 .table-btn1{
-    background-color: rgb(185 230 80);
+    background-color: rgb(255, 125, 125);
     border: none;
     color: black;
     padding: 5px 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 500;
     border-radius: 5px;
-    height: 25px;
-    line-height: 25px;
-    width: 70px;
+    height: 15px;
+    line-height: 15px;
+    width: 45px;
     margin-left: 10px;
 }
 
 .table-btn1:hover{
-    background-color: rgb(21, 93, 247);
+    background-color: rgb(247, 136, 45);
+    cursor: pointer;
 }
 .table-name{
     font-family: Helvetica;
@@ -166,4 +167,18 @@ tr:hover{
     margin-left: 119px;
     margin-right: 0px;
     font-weight: bold;
+}
+
+.user{
+    position: absolute;
+    right: 110px;
+    top: 37px;
+    font-weight: 400;
+    /* padding-right: 10px; */
+}
+.fa-solid{
+    position: absolute;
+    font-size: 12px;
+    right: 160px;
+    top: 39px;   
 }

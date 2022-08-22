@@ -125,11 +125,19 @@ Route::middleware(['auth','isAdmin'])->group(function(){
 
     Route::get('/regular/farmer/{id}',[AddfarmerController::class,'regularFarmer'])->name('regular.farmer');
 
+    Route::get('/damage_report',[OrderController::class,'fetch']);
+
+    Route::get('/damage/{id}',[OrderController::class,'damageShow']);
+
+    Route::post('/damage_delivery',[OrderController::class,'damage']);
+
     // Route::get('/sum',[CollectionController::class,'iubat']);
 
     // Route::get('/order/{id}',[OrderController::class,'show']);
 
     // Route::post('/order_update',[OrderController::class,'order']);
+
+    // Route::get('/view_order',[OrderController::class,'fetch']);
 
 });
 

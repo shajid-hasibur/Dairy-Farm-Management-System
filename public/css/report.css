@@ -108,3 +108,17 @@ body{
     width: 100px;
     border-radius: 5px;
 }
+
+.user{
+    position: absolute;
+    right: 110px;
+    top: 37px;
+    font-weight: 400;
+    /* padding-right: 10px; */
+}
+.fa-solid{
+    position: absolute;
+    font-size: 12px;
+    right: 160px;
+    top: 39px;   
+}

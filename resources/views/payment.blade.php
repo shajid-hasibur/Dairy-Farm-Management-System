@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payments</title>
     <link rel="stylesheet" href="{{ asset('css/farmer-list.css') }}">
+    <script src="https://kit.fontawesome.com/2dae312828.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
@@ -16,7 +17,9 @@
              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
               @csrf
             </form>
-          </div>    
+          </div>
+          <span class="user">{{ Auth::user()->name }}</span>
+          <i class="fa-solid fa-user"></i>    
         </div>
         <div class="nav-bar">
             <a class="nav-btn" href="{{ url('/home') }}">Home</a>
@@ -35,6 +38,7 @@
                   {{-- <th>Serial No:</th> --}}
                   <th>Id</th>
                   <th>Farmer's Name</th>
+                  <th>Farmer's Id</th>
                   <th>Farmer's Type</th>
                   <th>Milk Amount</th>
                   <th>Price</th>
@@ -48,6 +52,7 @@
                 <tr>
                   <td>{{ $data->id }}</td>
                   <td>{{ $data->farmer->name }}</td>
+                  <td>{{ $data->farmer->id }}</td>
                   <td>{{ $data->farmer->farmer_type }}</td>
                   <td>{{ $data->milk_amount }}</td>
                   <td>{{ $data->price }}</td>

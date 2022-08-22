@@ -6,13 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Report</title>
     <link rel="stylesheet" href="{{ asset('css/report.css') }}">
+    <script src="https://kit.fontawesome.com/2dae312828.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
         <div class="header"><h1>Milk Collection & Distribution System</h1>
-          <div class="btn-logout">
-            <a class="logout" href="{{ route('home') }}">Logout</a>
-          </div>  
+            <div class="btn-logout">
+                <a class="logout" href="{{ route('logout') }}" onclick="event.preventDefault(); 
+                document.getElementById('logout-form').submit();">Logout</a>
+                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+                </form>
+            </div>
+              <span class="user">{{ Auth::user()->name }}</span>
+              <i class="fa-solid fa-user"></i>  
         </div>
         {{-- <div class="nav-bar">
             <a class="nav-btn" href="{{ url('/home') }}">Home</a>
