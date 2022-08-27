@@ -13,7 +13,8 @@
         <div class="header"><h1>Milk Collection & Distribution System</h1></div>
         <div class="nav-bar">
           
-            <a class="nav-btn" href="{{ url('/home') }}">Home</a>
+          <a class="nav-btn" href="{{ route('logout') }}" onclick="event.preventDefault(); 
+          document.getElementById('logout-form').submit();">Home</a>
             <a class="nav-btn" href="{{ url('/farmer-list') }}">Farmers</a>
             <a class="nav-btn" href="{{ url('/employees') }}">Employees</a>
             <a class="nav-btn" href="{{ url('/collection-list') }}">Collection</a>
@@ -44,6 +45,11 @@
                  value="{{ $data['address'] }}" required>
               </div>
               <div class="input-box">
+                <span class="details">Contact</span>
+                <input type="text" name="contact" placeholder="Enter phone number"
+                 value="{{ $data['contact'] }}" required>
+              </div>
+              <div class="input-box">
                 <span class="details">Milk Amount</span>
                 <input type="text" name="milk_amount" placeholder="Enter amount" 
                 value="{{ $data['milk_amount'] }}" required>
@@ -60,10 +66,10 @@
                 <span class="details">Payment Status</span>
                 <input type="text" name="payment_status" placeholder="Payment status" value="{{ $data['payment_status'] }}" required>
               </div>
-              {{-- <div class="input-box">
-                <span class="details">Farmer's Phone NO:</span>
-                <input type="text" name="farmers_phone" placeholder="Phone number" value="{{ $data['farmers_phone'] }}" required>
-              </div> --}}
+              <div class="input-box">
+                <span class="details">Delivery Status</span>
+                <input type="text" name="status" placeholder="Phone number" value="{{ $data['status'] }}" required>
+              </div>
             </div>
             <div class="button">
               <input type="submit" value="Save">

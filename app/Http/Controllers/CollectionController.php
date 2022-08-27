@@ -44,7 +44,7 @@ class CollectionController extends Controller
             'farmer_id'=>$collection->farmer_id,
             'milk_amount'=>$collection->milk_amount,
             'price'=>$collection->price,
-            'total_price'=>$collection->price+$collection->price*0.5,
+            'total_price'=>$collection->price+$collection->price*0.05,
             'status'=>$collection->status,
 
         ]);
@@ -70,7 +70,10 @@ class CollectionController extends Controller
 
     public function destroy($id){
 
-        collection::find($id)->delete();
+        // collection::find($id)->delete();
+        $collection_id=collection::find($id);
+        // payment::where('collection_id',$collection_id->id)->delete();
+        $collection_id->delete();
         return redirect()->back();
     }
     public function edit($id)

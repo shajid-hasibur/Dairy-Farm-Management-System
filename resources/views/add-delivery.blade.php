@@ -13,7 +13,8 @@
         <div class="header"><h1>Milk Collection & Distribution System</h1></div>
         <div class="nav-bar">
           
-            <a class="nav-btn" href="{{ url('/home') }}">Home</a>
+          <a class="nav-btn" href="{{ route('logout') }}" onclick="event.preventDefault(); 
+          document.getElementById('logout-form').submit();">Home</a>
             <a class="nav-btn" href="{{ url('/farmer-list') }}">Farmers</a>
             <a class="nav-btn" href="{{ url('/employees') }}">Employees</a>
             <a class="nav-btn" href="{{ url('/collection-list') }}">Collection</a>
@@ -42,6 +43,10 @@
                 <input type="text" name="address" placeholder="Enter the address" required>
               </div>
               <div class="input-box">
+                <span class="details">Contact</span>
+                <input type="text" name="contact" placeholder="Enter phone number" required>
+              </div>
+              <div class="input-box">
                 <span class="details">Milk Amount</span>
                 <input type="text" name="milk_amount" placeholder="Enter amount" required>
               </div>
@@ -57,6 +62,10 @@
                 <span class="details">Payment Status</span>
                 <input type="text" name="payment_status" placeholder="payment status" required>
               </div>
+              {{-- <div class="input-box">
+                <span class="details">Delivery Status</span>
+                <input type="text" name="status" placeholder="delivery status" required>
+              </div> --}}
             </div>
             <div class="button">
               <input type="submit" value="Save">

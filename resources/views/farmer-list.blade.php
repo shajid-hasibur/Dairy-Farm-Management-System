@@ -22,15 +22,14 @@
           <i class="fa-solid fa-user"></i> 
         </div>
         <div class="nav-bar">
-            <a class="nav-btn" href="{{ url('/home') }}">Home</a>
+          <a class="nav-btn" href="{{ route('logout') }}" onclick="event.preventDefault(); 
+          document.getElementById('logout-form').submit();">Home</a>
             <a class="nav-btn" href="{{ url('/farmer-list') }}">Farmers</a>
             <a class="nav-btn" href="{{ url('/employees') }}">Employees</a>
             <a class="nav-btn" href="{{ url('/collection-list') }}">Collection</a>
             <a class="nav-btn" href="{{ url('/delivery') }}">Delivery</a>
             <a class="nav-btn" href="{{ url('/payment') }}">Payment</a>
             <a class="nav-btn" href="{{ url('/total_report') }}">Report</a>
-            {{-- <a class="nav-btn" href="{{ url('/report') }}">Report</a> --}}
-            {{-- <a class="nav-btn">Setting</a> --}}
         </div>
         <div class="content">
             <table class="table-content">
@@ -68,7 +67,7 @@
                 </tr>
                 @endforeach
               </table>
-              <span class="sum">Total Member : {{ $data }}</span>    
+              {{-- <span class="sum">Total Member : {{ $data }}</span>     --}}
         </div>
         <div class="add">
         <a class="addbtn" href="add-farmer">Add Farmer</a>

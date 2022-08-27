@@ -13,7 +13,8 @@
         <div class="header"><h1>Milk Collection & Distribution System</h1></div>
         <div class="nav-bar">
           
-            <a class="nav-btn" href="{{ url('/home') }}">Home</a>
+          <a class="nav-btn" href="{{ route('logout') }}" onclick="event.preventDefault(); 
+          document.getElementById('logout-form').submit();">Home</a>
             <a class="nav-btn" href="{{ url('/farmer-list') }}">Farmers</a>
             <a class="nav-btn" href="{{ url('/employees') }}">Employees</a>
             <a class="nav-btn" href="{{ url('/collection-list') }}">Collection</a>

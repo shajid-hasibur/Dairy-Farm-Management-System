@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('farmers_account',15);
             $table->string('farmers_phone',15);
             $table->string('farmer_type',20)->default('Irregular');
+            $table->string('deleted_at')->nullable(); 
             $table->timestamps();
         });
     }

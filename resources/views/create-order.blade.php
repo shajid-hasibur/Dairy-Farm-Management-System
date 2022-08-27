@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <div class="header"><h1>Milk Collection & Distribution System</h1></div>
-        <div class="nav-bar">
+        {{-- <div class="nav-bar">
           
             <a class="nav-btn" href="{{ url('/home') }}">Home</a>
             <a class="nav-btn" href="{{ url('/farmer-list') }}">Farmers</a>
@@ -20,9 +20,9 @@
             <a class="nav-btn" href="{{ url('/delivery') }}">Delivery</a>
             <a class="nav-btn" href="{{ url('/payment') }}">Payment</a>
             <a class="nav-btn" href="{{ url('/total_report') }}">Report</a>
-            {{-- <a class="nav-btn" href="{{ url('/report') }}">Report</a> --}}
-            {{-- <a class="nav-btn" href="#">Settings</a> --}}
-        </div>
+            {{-- <a class="nav-btn" href="{{ url('/report') }}">Report</a> 
+            {{-- <a class="nav-btn" href="#">Settings</a> 
+        </div> --}}
         <div class="reg-form">
             <div class="title">Order Summary</div>
         <div class="content">
@@ -70,7 +70,7 @@
           </form>
         </div>
       </div>
-      <div class="footer"></div>    
+      <div class="footer1"></div>    
     </div>
     <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>

@@ -21,36 +21,63 @@
               <span class="user">{{ Auth::user()->name }}</span>
               <i class="fa-solid fa-user"></i>  
         </div>
-        {{-- <div class="nav-bar">
-            <a class="nav-btn" href="{{ url('/home') }}">Home</a>
-            <a class="nav-btn" href="{{ url('/farmer-list') }}">Farmers</a>
-            <a class="nav-btn" href="{{ url('/employees') }}">Employees</a>
-            <a class="nav-btn" href="{{ url('/collection-list') }}">Collection</a>
-            <a class="nav-btn" href="{{ url('/delivery') }}">Delivery</a>
-            <a class="nav-btn" href="{{ url('/payment') }}">Payment</a>
-            <a class="nav-btn" href="{{ url('/total_report') }}">Report</a>
-        </div> --}}
         <div class="content">
-            <h1 class="table-name">Report</h1>
-            <div class="text1">
-             <div class="row">   
-             <ul>            
-                <li class="list"> <p class="report_item">Total Member : {{ $member }} Person</p><br/><br/></li>
-                <li class="list"><p class="report_item">Total Employee : {{ $employee }} Person</p><br/><br/></li>
-                <li class="list"><p class="report_item">Total Collected Milk : {{ $milk }} Liter</p><br/><br/></li>
-                <li class="list"><p class="report_item">Total Expenses : {{ $total_price }}/- BDT</p><br/><br/></li>
-                <li class="list"><p class="report_item">Total Ordered Milk : {{ $total_order }} Liter</p><br/><br/></li>
-                <li class="list"><p class="report_item">Total Earnings : {{ $total_earn }}/- BDT</p></li>
-             </ul>
-             </div>   
-            </div>
-            <div class="back-bt">
-                <a class="btn-b" href="{{ url('/farmer-list') }}">Back</a>
+            <h1 class="table-name">Total Summary</h1>
+            <table class="table-content">
+                <tr>
+                    <th>Total Member</th>
+                    <th>Total Employee</th>
+                    <th>Total Collected Milk</th>
+                    <th>Total Expenses</th>
+                    <th>Total Ordered Milk</th>
+                    <th>Total Earnings</th>
+                    <th>Profit</th>
+                </tr>
+
+                <tr>
+                    <td>{{ $member }} Person</td>
+                    <td>{{ $employee }} Person</td>
+                    <td>{{ $milk }} Liter</td>
+                    <td>{{ $total_price }}/- BDT</td>
+                    <td>{{ $total_order }} Liter</td>
+                    <td>{{ $total_earn }}/- BDT</td>
+                    <td>{{ $profit }}/- BDT</td>
+                </tr>
+            </table>
+            <div class="span">
+                <h3 class="head">Current Month Summary</h3>
+                @foreach ($delivery as $deli)
+                <ul class="unlist">
+                    <li>Total Order By This Month : {{ $deli->count }} Entry</li>
+                    <li>Total Ordered Milk By This Month : {{ $deli->total }} Liter</li>                   
+                </ul>
+
+                @endforeach
+                @foreach ($delivery1 as $deli1)
+                <ul class="unlist">
+                    <li>Total Collected Milk By This Month : {{ $deli1->total }} Liter</li>
+                    <li>Total Collection By This Month : {{ $deli1->count }} Entry</li>                   
+                </ul>
+                @endforeach
+                <h3 class="head">Current Year Summary</h3>
+                @foreach ($delivery2 as $deli2)
+                <ul class="unlist">
+                    <li>Total Order By This Year : {{ $deli2->count }} Entry</li>
+                    <li>Total Ordered Milk By This Year : {{ $deli2->total }} Liter</li>                   
+                </ul>
+                @endforeach
+
+                @foreach ($delivery3 as $deli3)
+                <ul class="unlist">
+                    <li>Total Collected Milk By This Year : {{ $deli3->total }} Liter</li>
+                    <li>Total Collection By This Year : {{ $deli3->count }} Entry</li>                   
+                </ul>
+                @endforeach
             </div>
         </div>
-        {{-- <div class="add">
-        <a class="addbtn" href="#">Download PDF</a>
-        </div> --}}
+        <div class="re-back">
+            <a class="bac-bt" href="{{ url('/farmer-list') }}">Back</a>
+        </div>
         <div class="footer"></div>
     </div>
 </body>

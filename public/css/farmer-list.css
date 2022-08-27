@@ -66,7 +66,7 @@ tr:hover{
     height: 15px;
     line-height: 15px;
     width: 45px;
-    margin-left: 10px;
+    /* margin-left: 10px; */
 }
 
 .table-btn:hover{
@@ -86,7 +86,7 @@ tr:hover{
     height: 15px;
     line-height: 15px;
     width: 45px;
-    margin-left: 10px;
+    /* margin-left: 10px; */
 }
 
 .table-btn1:hover{
@@ -99,9 +99,9 @@ tr:hover{
     width: 30px;
 } */
 
-#rejectbtn{
+/* #rejectbtn{
     cursor: pointer;
-}
+} */
 
 
 .table-name{
@@ -325,6 +325,28 @@ tr:hover{
     right: 160px;
     top: 39px;   
 }
+
+.w-5{
+    display: none;
+}
+
+.button1{
+    background-color: rgba(197, 194, 194, 0.957);
+    border: none;
+    color: black;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 5px;
+    height: 15px;
+    line-height: 15px;
+    width: 60px;
+}
+
+
 
 
 

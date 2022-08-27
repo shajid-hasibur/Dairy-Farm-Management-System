@@ -12,13 +12,13 @@ class payment extends Model
 
     public function collection()
     {
-        return $this->belongsTo(collection::class,'collection_id','id');
+        return $this->belongsTo(collection::class,'collection_id','id')->withTrashed();
 
     }
 
     public function farmer()
     {
-        return $this->belongsTo(add_farmer::class,'farmer_id','id');
+        return $this->belongsTo(add_farmer::class,'farmer_id','id')->withTrashed();
 
     }
 

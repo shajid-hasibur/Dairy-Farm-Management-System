@@ -18,6 +18,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('employee_id')->nullable();
             $table->text('address');
+            $table->double('contact')->nullable();
             $table->double('milk_amount');
             $table->double('damage_amount')->nullable();
             $table->date('delivery_date')->nullable();

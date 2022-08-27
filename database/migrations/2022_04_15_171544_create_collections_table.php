@@ -20,6 +20,7 @@ return new class extends Migration
             $table->double('price');
             $table->date('date');
             $table->string('status');
+            $table->string('deleted_at')->nullable(); 
             $table->timestamps();
         });
     }

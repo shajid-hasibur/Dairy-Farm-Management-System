@@ -20,7 +20,7 @@ class DeliveryController extends Controller
     public function fetch(){
         $employee=employee::all();
         $login_user = auth()->user();
-        $users=delivery::all();
+        $users=delivery::paginate(5);
         $data=delivery::sum('milk_amount');
         $data2=delivery::sum('price');
         foreach($users as $item){
@@ -44,6 +44,7 @@ class DeliveryController extends Controller
         $this->validate($req,[
             'company_name' => 'required',
             'address' => 'required',
+            'contact' => 'required',
             'milk_amount' => 'required',
             'price' => 'required',
             
@@ -67,6 +68,7 @@ class DeliveryController extends Controller
 
         $data->company_name=$request->input('company_name');
         $data->address=$request->input('address');
+        $data->contact=$request->input('contact');
         $data->milk_amount=$request->input('milk_amount');
         $data->price=$request->input('price');
         $data->status=$request->input('status');

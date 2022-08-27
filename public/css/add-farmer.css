@@ -75,6 +75,13 @@ body{
   margin-top: 150px;
 }
 
+.footer1{
+  background-color: rgb(213, 236, 169);
+  grid-column: 1 / -1;
+  height: 50px;
+  margin-top: 1000px;
+}
+
 .reg-form .title{
     font-size: 30px;
     font-weight: bold;

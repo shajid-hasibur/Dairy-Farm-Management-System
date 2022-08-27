@@ -22,7 +22,8 @@
           <i class="fa-solid fa-user"></i>  
         </div>
         <div class="nav-bar">
-          <a class="nav-btn" href="{{ url('/home') }}">Home</a>
+          <a class="nav-btn" href="{{ route('logout') }}" onclick="event.preventDefault(); 
+            document.getElementById('logout-form').submit();">Home</a>
             <a class="nav-btn" href="{{ url('/farmer-list') }}">Farmers</a>
             <a class="nav-btn" href="{{ url('/employees') }}">Employees</a>
             <a class="nav-btn"href="{{ url('/collection-list') }}">Collection</a>
@@ -53,7 +54,7 @@
                   <td>{{ $user->damage_amount }}</td>
                   <td>{{ $user->delivery_date }}</td>
                   <td>
-                    <a class="table-btn1" href="{{ url('/damage',$user->id) }}">Deliver</a>
+                    <a class="button1" href="{{ url('/damage',$user->id) }}">Re&nbsp;deliver</a>
                   </td>
                 </tr>
                 @endforeach  

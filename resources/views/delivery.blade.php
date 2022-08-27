@@ -22,7 +22,8 @@
         </div>
         <div class="nav-bar">
           <?php if($login_user->role == '1') {?>
-            <a class="nav-btn" href="{{ url('/home') }}">Home</a>           
+            <a class="nav-btn" href="{{ route('logout') }}" onclick="event.preventDefault(); 
+            document.getElementById('logout-form').submit();">Home</a>          
             <a class="nav-btn" href="{{ url('/farmer-list') }}">Farmers</a>
             <a class="nav-btn" href="{{ url('/employees') }}">Employees</a>
             <a class="nav-btn" href="{{ url('/collection-list') }}">Collection</a>
@@ -39,6 +40,7 @@
                   <th>Delivery Id</th>
                   <th>Company Name</th>
                   <th>Address</th>
+                  <th>Contact</th>
                   <th>Milk Amount</th>
                   <th>Price</th>
                   <th>Delivery Man</th>
@@ -51,6 +53,7 @@
                   <td>{{ $user->id}}</td>
                   <td>{{ $user->company_name }}</td>
                   <td>{{ $user->address }}</td>
+                  <td>{{ $user->contact }}</td>
                   <td>{{ $user->milk_amount }}</td>
                   <td>{{ $user->price }}</td>
                   @if ($user->employee_id=='')
@@ -67,21 +70,12 @@
                   @if($login_user->role=='0' && $user->status=='Processing')
                   <a class="table-btn4" href="{{route('status.delivered',$user->id)}}">Delivered</a>
                   <a class="table-btn4" href="{{route('status.damaged',$user->id)}}">Damaged</a>
-                  {{-- <a class="table-btn" href="{{route('status.rejected',$user->id)}}">Rejected</a> --}}
+                  @if ($user->days_passed<=3)
+                  <a class="table-btn4" style="pointer-events:none;">Reject</a>
+                  @else 
+                  <a class="table-btn4" href="{{route('status.rejected',$user->id)}}">Reject</a>    
+                  @endif
                   
-                  <a class="reject-btn" href="{{route('status.rejected',$user->id)}}" ><button id="rejectbtn"
-                     
-                   @if($user->days_left<=3) disabled @endif>Reject</button></a>
-                   {{-- <a class="reject-btn" href="{{route('status.rejected',$user->id)}}"><button id="rejectbtn">Reject --}}
-                    {{-- @if ($user->days_left<=3)  --}}
-                    
-                    {{-- <script>document.getElementById("rejectbtn").disabled=true;</script> --}}
-                    {{-- @else --}}
-                    {{-- <script>document.getElementById("rejectbtn").disabled=false;</script> --}}
-                    {{-- @endif --}}
-                    {{-- </button></a>  --}}
-
-
                   @else
                   <a class="table-btn4" href="#">{{$user->status}}</a>
                   @endif
@@ -100,8 +94,11 @@
                 </tr>
                 @endforeach
               </table>
-              <span class="sum1">Total Milk Amount : {{ $data }}</span>
-              <span class="Totalprice1">Total Earnings : {{ $data2 }}</span>    
+              <div class="paginator">
+                {{ $users->links() }}
+              </div>
+              {{-- <span class="sum1">Total Milk Amount : {{ $data }}</span>
+              <span class="Totalprice1">Total Earnings : {{ $data2 }}</span>     --}}
         </div>
         <div class="add">
         <?php if($login_user->role == '1') {?>  

@@ -13,6 +13,6 @@ class delivery extends Model
     
     public function employee()
     {
-        return $this->belongsTo(employee::class,'employee_id','id');
+        return $this->belongsTo(employee::class,'employee_id','id')->withTrashed();
     }
 }

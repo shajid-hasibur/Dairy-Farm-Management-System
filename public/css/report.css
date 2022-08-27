@@ -30,13 +30,15 @@ body{
     text-align: center;
     font-weight: bold;
     font-size: 30px;
+    margin-top: 50px;
+    
 }
 
 .footer{
     background-color: rgb(213, 236, 169);
     grid-column: 1 / -1;
-    height: 50px;
-    margin-top: 100px;
+    height: 0px;
+    margin-top: 0px;
     position: absolute;
     left: 0;
     bottom: 0;
@@ -121,4 +123,72 @@ body{
     font-size: 12px;
     right: 160px;
     top: 39px;   
+}
+
+.table-content{
+    margin: 35px 0;
+    font-size: 0.9em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1300px; 
+}
+
+.table-content th {
+    background-color: rgb(185 230 80);
+    color: rgb(0, 0, 0);
+    height: 30px;
+}
+th, td{
+    border: 1px double black;
+    text-align: center;
+    height: 25px;
+    padding: 5px;
+}
+tr:hover{
+    background-color: rgb(248, 225, 123);
+}
+
+.span{
+    width: 500px;
+    height: auto;
+    margin-left: 118px;
+}
+
+.unlist{
+   list-style-type: square;
+   font-size: large;
+}
+
+.head{
+    left: 0;
+}
+
+.re-back{
+    height:70px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+}
+
+.bac-bt{
+    background-color: rgb(143, 153, 150);
+    border: none;
+    color: black;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    height: 30px;
+    line-height: 30px;
+    width: 150px;
+}
+
+.bac-bt:hover{
+    cursor: pointer;
+    background-color: #f7e83e;
+
 }
