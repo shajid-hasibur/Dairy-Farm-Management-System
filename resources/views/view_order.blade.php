@@ -58,7 +58,10 @@
                   </td>
                 </tr>
                 @endforeach  
-            </table>  
+            </table>
+            <div class="paginator">
+              {{ $users->links() }}
+            </div>  
         </div>
           <div class="footer"></div>
     </div>

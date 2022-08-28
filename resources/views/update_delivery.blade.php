@@ -32,13 +32,31 @@
             <input type="hidden" name="id" value="{{ $data['id'] }}">
             <div class="user-details">
               <div class="input-box">
+                <label for="Employee" class="label"></label>
+                <select class="select-box" name="employee_id" aria-label="Default select example">
+                    <option>Select employee</option>
+                    @foreach ($employee as $item)
+                    <option
+                    @if($item->id==$data->employee_id)
+                          selected
+                    @endif
+                      value="{{$item->id}}">{{$item->name}}</option>
+                    @endforeach
+                </select>
+              </div>
+
+              <div class="input-box">
                 <span class="details">Company Name</span>
                 <input type="text" name="company_name" placeholder="Enter the name" value="{{ $data['company_name'] }}" required>
               </div>
-              {{-- <div class="input-box">
-                <span class="details">Id-No:</span>
-                <input type="text" name="id" placeholder="Enter ID" required>
-              </div> --}}
+              {{-- @foreach ($employee as $item)
+              <div class="input-box">
+                <span class="details">Delivery Man</span>
+                <input type="text" name="name" placeholder="Enter the name" value="{{ $item->name }}" required>
+              </div>
+              @endforeach  --}}
+             
+                         
               <div class="input-box">
                 <span class="details">Address</span>
                 <input type="text" name="address" placeholder="Enter the address"
@@ -62,10 +80,10 @@
                 <span class="details">Delivery Status</span>
                 <input type="text" name="delivery_status" placeholder="delivery status" value="{{ $data['delivery_status'] }}" required>
               </div> --}}
-              <div class="input-box">
+              {{-- <div class="input-box">
                 <span class="details">Payment Status</span>
                 <input type="text" name="payment_status" placeholder="Payment status" value="{{ $data['payment_status'] }}" required>
-              </div>
+              </div> --}}
               <div class="input-box">
                 <span class="details">Delivery Status</span>
                 <input type="text" name="status" placeholder="Phone number" value="{{ $data['status'] }}" required>

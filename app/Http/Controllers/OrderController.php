@@ -31,7 +31,7 @@ class OrderController extends Controller
 
     public function fetch(){
 
-        $users = delivery::all();
+        $users = delivery::paginate(5);
         return view('view_order',compact('users'));
     }
 

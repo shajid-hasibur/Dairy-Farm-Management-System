@@ -214,3 +214,10 @@ form .user-details .input-box{
 
 }
 
+.label{
+  padding: 5px;
+  float: left;
+  font-size: large;
+  font-weight: 500;
+}
+

@@ -61,15 +61,7 @@
                 <span class="details">Delivery Status</span>
                 <input type="text" name="status" placeholder="Enter the status" value="{{ $data['status'] }}" required>
               </div>
-              {{-- <div class="input-box">
-                <span class="details">Delivery Status</span>
-                <input type="text" name="delivery_status" placeholder="delivery status" value="{{ $data['delivery_status'] }}" required>
-              </div> --}}
-
-              {{-- <div class="input-box">
-                <span class="details">Farmer's Phone NO:</span>
-                <input type="text" name="farmers_phone" placeholder="Phone number" value="{{ $data['farmers_phone'] }}" required>
-              </div> --}}
+              
             </div>
             <div class="button">
               <input type="submit" value="Save">

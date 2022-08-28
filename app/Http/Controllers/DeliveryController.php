@@ -59,7 +59,8 @@ class DeliveryController extends Controller
 
     public function showdata($id){
         $data = delivery::find($id);
-        return view('update_delivery',['data'=>$data]);
+        $employee = employee::all();
+        return view('update_delivery',compact('data','employee'));
     }
 
     public function update(Request $request){
@@ -72,6 +73,7 @@ class DeliveryController extends Controller
         $data->milk_amount=$request->input('milk_amount');
         $data->price=$request->input('price');
         $data->status=$request->input('status');
+        $data->employee_id=$request->input('employee_id');
         
         $data->update();
 
