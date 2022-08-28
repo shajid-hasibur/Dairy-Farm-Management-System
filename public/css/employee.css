@@ -35,7 +35,7 @@ body{
     font-size: 0.9em;
     margin-left: auto;
     margin-right: auto;
-    width: 1300px; 
+    width: 1400px; 
 }
 .table-content th {
     background-color: rgb(185 230 80);
@@ -181,4 +181,7 @@ tr:hover{
     font-size: 12px;
     right: 160px;
     top: 39px;   
+}
+.w-5{
+    display: none;
 }

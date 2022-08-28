@@ -63,6 +63,9 @@
                 </tr>
                 @endforeach
               </table>
+              <div class="paginator">
+                {{ $collections->links() }}
+              </div>
               {{-- <span class="sum">Total Milk Amount : {{ $sum }} Liter</span>
               <span class="Totalprice">Total Price : {{ $totalPrice }}/- BDT</span> --}}
         </div>

@@ -16,7 +16,7 @@ class FetchDataController extends Controller
     }
     public function index(){
 
-        $users=add_farmer::all();
+        $users=add_farmer::paginate(5);
         $data = add_farmer::count('id');
         return view('farmer-list',compact('users','data'));
     }

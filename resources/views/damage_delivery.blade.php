@@ -34,7 +34,15 @@
                 <div class="input-box">
                     <span class="details">Delivery Id</span>
                     <input type="text" name="id"  value="{{ $data['id'] }}" required>
-                </div>  
+                </div>
+                @foreach($emp as $item)
+                <div class="input-box">
+                  @if($item->id==$data->employee_id)
+                  <span class="details">Delivery Man</span>
+                  <input type="text" name=""  value="{{$item->name}}" required>
+                  @endif
+                </div>
+                @endforeach  
               <div class="input-box">
                 <span class="details">Company Name</span>
                 <input type="text" name="company_name"  value="{{ $data['company_name'] }}" required>

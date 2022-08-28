@@ -19,8 +19,8 @@
     <p><b>Milk Amount: {{$user->milk_amount}}</b></p>
     <p><b>Price: {{$user->price }}</b></p>
     <p><b>Deliveryman: {{$user->employee->name }}</b></p>
-    <p><b>Delivery Status: {{$user->delivery_status}}<b></p>
-    <p><b>Payment Status: {{$user->payment_status}}<b></p>
+    {{-- <p><b>Delivery Status: {{$user->delivery_status}}<b></p>
+    <p><b>Payment Status: {{$user->payment_status}}<b></p> --}}
     
 
      {{-- <a href="{{route('view.assign.volunteer',$cause->id)}}"><button type="button" class="btn btn-info">View Volunteer</button></a><br><br> --}}

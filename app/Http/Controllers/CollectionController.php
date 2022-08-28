@@ -13,7 +13,7 @@ class CollectionController extends Controller
 {
     public function index(){
 
-        $collections=collection::all();
+        $collections=collection::paginate(5);
         $sum = collection::sum('milk_amount');
         $totalPrice = collection::sum('price');
         return view('collection-list',compact('collections','sum','totalPrice'));

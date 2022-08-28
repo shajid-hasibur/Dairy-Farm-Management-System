@@ -58,6 +58,9 @@
                 </tr>
                 @endforeach
               </table>
+              <div class="paginator">
+                {{ $users->links() }}
+              </div>
               {{-- <span class="count">Total Employees : {{ $data }}</span>     --}}
         </div>
         <div class="add">

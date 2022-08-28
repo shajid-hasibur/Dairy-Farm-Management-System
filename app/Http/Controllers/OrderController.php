@@ -39,7 +39,8 @@ class OrderController extends Controller
 
         $data = delivery::find($id);
         $users = delivery::all();
-        return view('damage_delivery',compact('data','users'));
+        $emp = employee::all();
+        return view('damage_delivery',compact('data','users','emp'));
 
     }
 
